@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ckuek02s20yri"]
+
+[ext_resource type="Script" uid="uid://cggapm50ge4jg" path="res://Nodes/grid_placer.gd" id="1_m4ibs"]
+
+[node name="GridPlacer" type="Node2D" unique_id=788996045]
+script = ExtResource("1_m4ibs")
