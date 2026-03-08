@@ -10,11 +10,16 @@ func drawGrid():
 	var rightX = make_canvas_position_local(get_viewport_rect().size).x
 	
 	var vertXStart = leftX-fmod(leftX,100)
+	var horYStart = topY-fmod(topY,100)
 	
-	for i in range(10):
-		draw_line(Vector2(vertXStart + 100*i, topY), Vector2(vertXStart + 100*i, bottomY), Color.BLACK, 10/get_viewport().get_camera_2d().zoom.x)
-	for i in range(10):
-		draw_line(Vector2(rightX, 100*i), Vector2(leftX, 100*i), Color.BLACK, 10/get_viewport().get_camera_2d().zoom.x)
+	var horizontalLines = 0
+	while(vertXStart + 100*horizontalLines < rightX):
+		draw_line(Vector2(vertXStart + 100*horizontalLines, topY), Vector2(vertXStart + 100*horizontalLines, bottomY), Color.BLACK, 10)
+		horizontalLines += 1
+	var verticalLines = 0
+	while(horYStart + 100*verticalLines < bottomY):
+		draw_line(Vector2(leftX, horYStart + 100*verticalLines), Vector2(rightX, horYStart + 100*verticalLines), Color.BLACK, 10)
+		verticalLines += 1
 	
 func _draw():
 	drawGrid()
