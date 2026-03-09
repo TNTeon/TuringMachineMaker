@@ -17,3 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="TuringMachineMaker"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0.5764706, 0.58431375, 0.827451, 1)
