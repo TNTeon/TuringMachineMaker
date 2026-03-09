@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bidoc5ixj7sm0"]
+
+[ext_resource type="Script" uid="uid://h8ntgwai3aob" path="res://Nodes/action_button.gd" id="1_ccuic"]
+
+[node name="ActionButton" type="TextureButton" unique_id=1235664888 groups=["action_buttons"]]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+toggle_mode = true
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_ccuic")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -24,9 +24,9 @@ func _input(event):
 				clicking = get_viewport().get_mouse_position()
 			if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
 				if get_viewport().get_mouse_position().distance_to(clicking) < 0.5:
-					placeNode()
+					action()
 
-func placeNode():
+func action():
 	checkNulls()
 	var placeNode : Node2D = node.instantiate()
 	var mousePos = get_global_mouse_position()

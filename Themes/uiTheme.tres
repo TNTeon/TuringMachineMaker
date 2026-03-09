@@ -1,0 +1,37 @@
+[gd_resource type="Theme" format=3 uid="uid://b8pp1d2jfmtub"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u8ip1"]
+bg_color = Color(0.7019608, 0.7176471, 0.93333334, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2txmg"]
+bg_color = Color(0.76724994, 0.6975, 0.93, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npdj6"]
+bg_color = Color(0.5764706, 0.58431375, 0.827451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fo4i8"]
+bg_color = Color(0.39215687, 0.8666667, 0.81960785, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[resource]
+Button/styles/hover = SubResource("StyleBoxFlat_u8ip1")
+Button/styles/normal = SubResource("StyleBoxFlat_2txmg")
+Button/styles/pressed = SubResource("StyleBoxFlat_npdj6")
+Panel/styles/panel = SubResource("StyleBoxFlat_fo4i8")
+VBoxContainer/constants/separation = 20

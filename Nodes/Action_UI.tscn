@@ -1,0 +1,282 @@
+[gd_scene format=3 uid="uid://d220eo2uv7o2d"]
+
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_g4cio"]
+[ext_resource type="Script" uid="uid://xfjemp7fwsco" path="res://Nodes/action_ui.gd" id="1_r8ipi"]
+[ext_resource type="Texture2D" uid="uid://dqrj57nqgi87c" path="res://Assets/arrowButton/arrow.png" id="2_h416k"]
+[ext_resource type="Texture2D" uid="uid://2l1cgedu7wo8" path="res://Assets/arrowButton/arrow_pressed.png" id="3_8cst1"]
+[ext_resource type="Texture2D" uid="uid://bps52wec0jdcc" path="res://Assets/arrowButton/arrow_hover.png" id="4_r8ipi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r8ipi"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_r8ipi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Seperator/HoldButton/Collapse:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.141592653589793]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Seperator/ActionButtonHolder:size_flags_stretch_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/Seperator/ActionButtonHolder:theme_override_constants/separation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/Seperator/Panel:size_flags_stretch_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="Animation" id="Animation_8cst1"]
+resource_name = "close_window"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Seperator/HoldButton/Collapse:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(0.24148476, 1),
+"update": 0,
+"values": [3.141592653589793, 6.283185307179586]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Seperator/ActionButtonHolder:size_flags_stretch_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [0.9, 0.25]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/Seperator/ActionButtonHolder:theme_override_constants/separation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [20, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/Seperator/Panel:size_flags_stretch_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.01, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_3i7r1"]
+resource_name = "open_window"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel/Seperator/HoldButton/Collapse:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(0.24148476, 1),
+"update": 0,
+"values": [0.0, 3.141592653589793]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/Seperator/ActionButtonHolder:size_flags_stretch_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Panel:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [0.25, 0.9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Panel/Seperator/ActionButtonHolder:theme_override_constants/separation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(0.4, 1),
+"update": 0,
+"values": [0, 20]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Panel/Seperator/Panel:size_flags_stretch_ratio")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.91),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.01]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8ipi"]
+_data = {
+&"RESET": SubResource("Animation_r8ipi"),
+&"close_window": SubResource("Animation_8cst1"),
+&"open_window": SubResource("Animation_3i7r1")
+}
+
+[node name="ActionUI" type="Control" unique_id=374891343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_r8ipi")
+
+[node name="Panel" type="Panel" parent="." unique_id=413965042]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.01
+anchor_top = 0.1
+anchor_right = 0.07
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_g4cio")
+
+[node name="Seperator" type="VBoxContainer" parent="Panel" unique_id=668737988]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.02
+anchor_right = 0.9
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_g4cio")
+
+[node name="ActionButtonHolder" type="VBoxContainer" parent="Panel/Seperator" unique_id=1274494495]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_g4cio")
+theme_override_constants/separation = 20
+
+[node name="Panel" type="Panel" parent="Panel/Seperator" unique_id=1682321621]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_r8ipi")
+
+[node name="HoldButton" type="Control" parent="Panel/Seperator" unique_id=1896877886]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+mouse_filter = 1
+
+[node name="Collapse" type="TextureButton" parent="Panel/Seperator/HoldButton" unique_id=348268288]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+rotation = 3.1415927
+pivot_offset_ratio = Vector2(0.5, 0.5)
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+mouse_filter = 1
+texture_normal = ExtResource("2_h416k")
+texture_pressed = ExtResource("3_8cst1")
+texture_hover = ExtResource("4_r8ipi")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=617858622]
+libraries/ = SubResource("AnimationLibrary_r8ipi")
+
+[connection signal="mouse_entered" from="Panel/Seperator" to="." method="_mouse_hovering"]
+[connection signal="mouse_exited" from="Panel/Seperator" to="." method="_mouse_unhovering"]
+[connection signal="pressed" from="Panel/Seperator/HoldButton/Collapse" to="." method="_on_collapse_pressed"]
