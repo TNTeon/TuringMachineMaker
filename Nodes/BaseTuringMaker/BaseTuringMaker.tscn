@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://bdnekmafl11bu"]
+
+[ext_resource type="Script" uid="uid://bkwpx0j5tl300" path="res://Nodes/BaseTuringMaker/base_turing_maker.gd" id="1_tfi5y"]
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="2_itg4s"]
+[ext_resource type="FontFile" uid="uid://c8uuavmtut674" path="res://Font/FormalScript.otf" id="3_4dqry"]
+[ext_resource type="PackedScene" uid="uid://dfe7q8lmsx8x0" path="res://Nodes/BaseTuringMaker/betterLineEdit.tscn" id="4_e3msa"]
+[ext_resource type="Theme" uid="uid://cpfpdoi1lypp3" path="res://Themes/subUITheme.tres" id="5_tfi5y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itg4s"]
+bg_color = Color(0.7019608, 0.7176471, 0.93333334, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sgg4"]
+bg_color = Color(0.5764706, 0.58431375, 0.827451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="BaseTuringMaker" type="CanvasLayer" unique_id=1483067218]
+script = ExtResource("1_tfi5y")
+
+[node name="Name" parent="." unique_id=86983138 instance=ExtResource("4_e3msa")]
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.05
+anchor_right = 0.7
+anchor_bottom = 0.15
+theme_override_fonts/font = ExtResource("3_4dqry")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_itg4s")
+placeholder_text = "Name"
+
+[node name="Labeling" type="Panel" parent="." unique_id=939336804]
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.2
+anchor_right = 0.967
+anchor_bottom = 0.25
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("2_itg4s")
+
+[node name="hBox" type="HBoxContainer" parent="Labeling" unique_id=1343822603]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.035
+anchor_right = 0.98
+anchor_bottom = 0.965
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="q4" type="RichTextLabel" parent="Labeling/hBox" unique_id=65760152]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+text = "Row"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="q0" type="RichTextLabel" parent="Labeling/hBox" unique_id=1747405994]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Initial State"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="q1" type="RichTextLabel" parent="Labeling/hBox" unique_id=1631551171]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Reading Char"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="q2" type="RichTextLabel" parent="Labeling/hBox" unique_id=1711025630]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Writing Char"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="q3" type="RichTextLabel" parent="Labeling/hBox" unique_id=599429787]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Next State"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1673021176]
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.27
+anchor_right = 0.967
+anchor_bottom = 0.978
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="List" type="VBoxContainer" parent="ScrollContainer" unique_id=1015440663]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 17
+
+[node name="QuadHolder" type="VBoxContainer" parent="ScrollContainer/List" unique_id=990567052]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PosButton" type="Control" parent="ScrollContainer/List" unique_id=244057669]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="NewQuad" type="Button" parent="ScrollContainer/List/PosButton" unique_id=1261276995]
+custom_minimum_size = Vector2(231.67, 60)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4
+anchor_right = 0.6
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_itg4s")
+text = "New Quad"
+
+[node name="Button" type="Button" parent="." unique_id=1529094525]
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.033
+anchor_right = 0.978
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_itg4s")
+text = "Save"
+
+[node name="Button2" type="Button" parent="." unique_id=1118070557]
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.118
+anchor_right = 0.978
+anchor_bottom = 0.185
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_itg4s")
+text = "Exit"
+
+[node name="FontSettings" type="Panel" parent="." unique_id=951050565]
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.05
+anchor_right = 0.205
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_tfi5y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FontSettings" unique_id=892824042]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Font" type="RichTextLabel" parent="FontSettings/HBoxContainer" unique_id=1412721309]
+layout_mode = 2
+theme = ExtResource("2_itg4s")
+theme_override_font_sizes/normal_font_size = 16
+text = "Font: "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="FontSettings/HBoxContainer" unique_id=1706561736]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6sgg4")
+
+[node name="FontSelector" type="OptionButton" parent="FontSettings/HBoxContainer" unique_id=1066688630]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_itg4s")
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Formal"
+popup/item_0/id = 0
+popup/item_1/text = "Standard"
+popup/item_1/id = 1
+
+[connection signal="pressed" from="ScrollContainer/List/PosButton/NewQuad" to="." method="_on_new_quad_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_save"]
+[connection signal="item_selected" from="FontSettings/HBoxContainer/FontSelector" to="." method="_on_font_selected"]

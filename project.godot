@@ -15,8 +15,21 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="TuringMachineMaker"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+TuringStorage="*uid://dv3w42y6wrfso"
+
+[display]
+
+window/size/initial_position_type=3
+window/size/borderless=true
+
+[global_group]
+
+action_buttons=""
 
 [rendering]
 

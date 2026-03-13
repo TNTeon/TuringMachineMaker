@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://70bg17qa3lti"]
+
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_loaj4"]
+[ext_resource type="Script" uid="uid://c0q04rvdy8vmw" path="res://Nodes/BaseTuringMaker/quad_maker.gd" id="2_rj6vg"]
+[ext_resource type="PackedScene" uid="uid://dfe7q8lmsx8x0" path="res://Nodes/BaseTuringMaker/betterLineEdit.tscn" id="4_g4l20"]
+
+[node name="QuadMaker" type="Panel" unique_id=939336804]
+custom_minimum_size = Vector2(0, 80)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_loaj4")
+script = ExtResource("2_rj6vg")
+
+[node name="hBox" type="HBoxContainer" parent="." unique_id=1343822603]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.035
+anchor_right = 0.98
+anchor_bottom = 0.965
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="Control" parent="hBox" unique_id=627878712]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="RowNumber" type="RichTextLabel" parent="hBox/VBoxContainer" unique_id=621938726]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+size_flags_vertical = 3
+text = "Row 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Remove" type="Button" parent="hBox/VBoxContainer" unique_id=41537466]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+text = "Remove"
+
+[node name="q0" type="SpinBox" parent="hBox" unique_id=1978957735]
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+allow_greater = true
+alignment = 1
+
+[node name="a0" parent="hBox" unique_id=623201091 instance=ExtResource("4_g4l20")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="a1" parent="hBox" unique_id=1508192337 instance=ExtResource("4_g4l20")]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "a1"
+
+[node name="q1" type="SpinBox" parent="hBox" unique_id=1424885762]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = -1.0
+max_value = 1.0
+value = -1.0
+allow_greater = true
+alignment = 1
+
+[connection signal="pressed" from="hBox/VBoxContainer/Remove" to="." method="_on_remove_pressed"]
+[connection signal="value_changed" from="hBox/q0" to="." method="_on_q_0_value_changed"]
+[connection signal="text_changed" from="hBox/a0" to="." method="_on_a_0_text_changed"]
+[connection signal="text_changed" from="hBox/a1" to="." method="_on_a_1_text_changed"]
+[connection signal="value_changed" from="hBox/q1" to="." method="_on_q_1_value_changed"]

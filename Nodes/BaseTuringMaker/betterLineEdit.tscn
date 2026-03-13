@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dfe7q8lmsx8x0"]
+
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_aflis"]
+[ext_resource type="Script" uid="uid://ri3a57is8se8" path="res://Nodes/BaseTuringMaker/better_line_edit.gd" id="2_4tato"]
+
+[node name="a0" type="LineEdit" unique_id=623201091]
+theme = ExtResource("1_aflis")
+placeholder_text = "a0"
+alignment = 1
+max_length = 4
+script = ExtResource("2_4tato")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
