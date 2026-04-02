@@ -37,7 +37,7 @@ func _on_save() -> void:
 	machine.saveMachine()
 
 func makeMachine():
-	var machine = TuringMachine.new()
+	var machine = BaseTuringMachine.new()
 	var counter : int = 0
 	for i : QuadMaker in quad_holder.get_children():
 		counter += 1

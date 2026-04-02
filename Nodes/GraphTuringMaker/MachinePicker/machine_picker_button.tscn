@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dw26vxsu4hpmt"]
+
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_t4r42"]
+[ext_resource type="Script" uid="uid://cppd8h3scyry2" path="res://Nodes/GraphTuringMaker/MachinePicker/machine_picker_button.gd" id="2_0vouy"]
+
+[node name="MachinePickerButton" type="Button" unique_id=691543512]
+custom_minimum_size = Vector2(0, 30)
+offset_right = 33.0
+offset_bottom = 30.0
+theme = ExtResource("1_t4r42")
+text = "Test"
+script = ExtResource("2_0vouy")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://hp3hcl3nba2t"]
+
+[ext_resource type="Script" uid="uid://di5yxxn8taj25" path="res://Nodes/GraphTuringMaker/graph_turing_maker.gd" id="1_54xdb"]
+[ext_resource type="PackedScene" uid="uid://dghwfs11srxqw" path="res://Nodes/Camera_Controller.tscn" id="1_ds0gr"]
+[ext_resource type="PackedScene" uid="uid://ckuek02s20yri" path="res://Nodes/Moveable_Grid.tscn" id="2_54xdb"]
+[ext_resource type="PackedScene" uid="uid://c3b3qacfhcuh4" path="res://Nodes/Grid_Placer.tscn" id="3_e8ey0"]
+[ext_resource type="PackedScene" uid="uid://m18bgotrnj6u" path="res://Nodes/GraphTuringMaker/MachinePicker/machine_picker.tscn" id="4_x0d73"]
+[ext_resource type="PackedScene" uid="uid://dogc840hwcxcf" path="res://Nodes/GraphTuringMaker/MachineConnector/MachineConnector.tscn" id="5_wnelu"]
+[ext_resource type="PackedScene" uid="uid://c6tv8i7rdk5di" path="res://Nodes/GraphTuringMaker/GridObjectTracker/GrideObjectTracker.tscn" id="6_3vwye"]
+[ext_resource type="PackedScene" uid="uid://d220eo2uv7o2d" path="res://Nodes/Action_UI.tscn" id="7_2tkxc"]
+[ext_resource type="PackedScene" uid="uid://bidoc5ixj7sm0" path="res://Nodes/ActionButton.tscn" id="8_mcxy3"]
+[ext_resource type="Texture2D" uid="uid://dfy1q53thyjnj" path="res://Assets/functionButton/pressed.png" id="10_7kc1m"]
+[ext_resource type="Texture2D" uid="uid://ckah86gy6rxfm" path="res://Assets/cursor/pressed.png" id="10_54xdb"]
+[ext_resource type="Texture2D" uid="uid://78n1gxm1f0y1" path="res://Assets/functionButton/normal.png" id="11_4l3jf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e8ey0"]
+load_path = "res://.godot/imported/normal.png-47c9c08f038e9d411a9a625f51c75bd4.ctex"
+
+[node name="GraphMachineMaker" type="Node2D" unique_id=746548686]
+script = ExtResource("1_54xdb")
+
+[node name="CameraController" parent="." unique_id=2050672480 instance=ExtResource("1_ds0gr")]
+
+[node name="MoveableGrid" parent="." unique_id=788996045 node_paths=PackedStringArray("CAMERA") instance=ExtResource("2_54xdb")]
+LINE_THICKNESS = 1.0
+USE_CAMERA_FOR_THICKNESS = true
+CAMERA = NodePath("../CameraController")
+
+[node name="GridPlacer" parent="." unique_id=1358580862 node_paths=PackedStringArray("grid", "object_tracker") instance=ExtResource("3_e8ey0")]
+grid = NodePath("../MoveableGrid")
+node = ExtResource("4_x0d73")
+object_tracker = NodePath("../GrideObjectTracker")
+
+[node name="MachineConnector" parent="." unique_id=1942223369 node_paths=PackedStringArray("grid", "object_tracker") instance=ExtResource("5_wnelu")]
+grid = NodePath("../MoveableGrid")
+object_tracker = NodePath("../GrideObjectTracker")
+
+[node name="GrideObjectTracker" parent="." unique_id=1738256875 node_paths=PackedStringArray("grid", "placer") instance=ExtResource("6_3vwye")]
+grid = NodePath("../MoveableGrid")
+placer = NodePath("../GridPlacer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1113773349]
+
+[node name="ActionUI" parent="CanvasLayer" unique_id=374891343 instance=ExtResource("7_2tkxc")]
+
+[node name="SelectOption" parent="CanvasLayer/ActionUI" unique_id=1518976550 node_paths=PackedStringArray("connection") instance=ExtResource("8_mcxy3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+texture_normal = SubResource("CompressedTexture2D_e8ey0")
+texture_pressed = ExtResource("10_54xdb")
+connection = NodePath("../../../MachineConnector")
+
+[node name="MachinePlacer" parent="CanvasLayer/ActionUI" unique_id=1235664888 node_paths=PackedStringArray("connection") instance=ExtResource("8_mcxy3")]
+layout_mode = 0
+anchors_preset = 0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+texture_normal = ExtResource("11_4l3jf")
+texture_pressed = ExtResource("10_7kc1m")
+connection = NodePath("../../../GridPlacer")

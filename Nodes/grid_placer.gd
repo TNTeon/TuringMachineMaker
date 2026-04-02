@@ -1,17 +1,20 @@
 class_name grid_placer
 extends Node2D
 
-@export
-var active : bool = true
-
 @export_category("Dependencies")
 @export
 var grid : moveable_grid = null
 @export
 var node : PackedScene = null
 
+@export_category("Config")
+@export
+var object_tracker : grid_object_tracker = null
+
 @export
 var allowOverlap : bool = false
+
+var active : bool = false
 
 #This feels like a bool, but actually it will track mouse Pos to dertermine
 #	if the mouse was clicked or dragged.
@@ -28,19 +31,19 @@ func _input(event):
 
 func action():
 	checkNulls()
-	var placeNode : Node2D = node.instantiate()
+	var placeNode = node.instantiate()
 	var mousePos = get_global_mouse_position()
-	var snapMouse = snapPosToGrid(mousePos)
+	var snapMouse = grid.snapPosToGrid(mousePos)
 	
 	if not allowOverlap and is_overlap(snapMouse,get_tree().get_nodes_in_group("onGrid")):
 		return
 	
 	placeNode.add_to_group("onGrid")
-	grid.add_child(placeNode)
-	placeNode.position = snapPosToGrid(mousePos)
-	
-func snapPosToGrid(pos : Vector2):
-	return pos.snappedf(grid.GRID_DISTANCE)
+	if object_tracker != null:
+		object_tracker.add_child(placeNode)
+	else:
+		grid.add_child(placeNode)
+	placeNode.position = grid.snapPosToGrid(mousePos)
 
 func is_overlap(pos, group):
 	for i in group:

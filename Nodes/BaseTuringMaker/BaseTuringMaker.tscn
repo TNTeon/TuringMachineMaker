@@ -34,6 +34,77 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_itg4s")
 placeholder_text = "Name"
 
+[node name="Button" type="Button" parent="." unique_id=1529094525]
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.033
+anchor_right = 0.978
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_itg4s")
+text = "Save"
+
+[node name="Button2" type="Button" parent="." unique_id=1118070557]
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.118
+anchor_right = 0.978
+anchor_bottom = 0.185
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_itg4s")
+text = "Exit"
+
+[node name="FontSettings" type="Panel" parent="." unique_id=951050565]
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.05
+anchor_right = 0.205
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_tfi5y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FontSettings" unique_id=892824042]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Font" type="RichTextLabel" parent="FontSettings/HBoxContainer" unique_id=1412721309]
+layout_mode = 2
+theme = ExtResource("2_itg4s")
+theme_override_font_sizes/normal_font_size = 16
+text = "Font: "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="FontSettings/HBoxContainer" unique_id=1706561736]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6sgg4")
+
+[node name="FontSelector" type="OptionButton" parent="FontSettings/HBoxContainer" unique_id=1066688630]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("2_itg4s")
+alignment = 1
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Formal"
+popup/item_0/id = 0
+popup/item_1/text = "Standard"
+popup/item_1/id = 1
+
 [node name="Labeling" type="Panel" parent="." unique_id=939336804]
 anchors_preset = -1
 anchor_left = 0.033
@@ -130,77 +201,6 @@ grow_vertical = 2
 theme = ExtResource("2_itg4s")
 text = "New Quad"
 
-[node name="Button" type="Button" parent="." unique_id=1529094525]
-anchors_preset = -1
-anchor_left = 0.823
-anchor_top = 0.033
-anchor_right = 0.978
-anchor_bottom = 0.1
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_itg4s")
-text = "Save"
-
-[node name="Button2" type="Button" parent="." unique_id=1118070557]
-anchors_preset = -1
-anchor_left = 0.823
-anchor_top = 0.118
-anchor_right = 0.978
-anchor_bottom = 0.185
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_itg4s")
-text = "Exit"
-
-[node name="FontSettings" type="Panel" parent="." unique_id=951050565]
-anchors_preset = -1
-anchor_left = 0.022
-anchor_top = 0.05
-anchor_right = 0.205
-anchor_bottom = 0.15
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("5_tfi5y")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="FontSettings" unique_id=892824042]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 5.0
-offset_right = -5.0
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Font" type="RichTextLabel" parent="FontSettings/HBoxContainer" unique_id=1412721309]
-layout_mode = 2
-theme = ExtResource("2_itg4s")
-theme_override_font_sizes/normal_font_size = 16
-text = "Font: "
-fit_content = true
-autowrap_mode = 0
-vertical_alignment = 1
-
-[node name="Panel" type="Panel" parent="FontSettings/HBoxContainer" unique_id=1706561736]
-custom_minimum_size = Vector2(4, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6sgg4")
-
-[node name="FontSelector" type="OptionButton" parent="FontSettings/HBoxContainer" unique_id=1066688630]
-layout_mode = 2
-size_flags_horizontal = 3
-theme = ExtResource("2_itg4s")
-alignment = 1
-selected = 0
-allow_reselect = true
-item_count = 2
-popup/item_0/text = "Formal"
-popup/item_0/id = 0
-popup/item_1/text = "Standard"
-popup/item_1/id = 1
-
-[connection signal="pressed" from="ScrollContainer/List/PosButton/NewQuad" to="." method="_on_new_quad_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_save"]
 [connection signal="item_selected" from="FontSettings/HBoxContainer/FontSelector" to="." method="_on_font_selected"]
+[connection signal="pressed" from="ScrollContainer/List/PosButton/NewQuad" to="." method="_on_new_quad_pressed"]

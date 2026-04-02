@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://m18bgotrnj6u"]
+
+[ext_resource type="Script" uid="uid://ct2up6xfplq6f" path="res://Nodes/GraphTuringMaker/MachinePicker/machine_picker.gd" id="1_6i4dk"]
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_syty6"]
+[ext_resource type="PackedScene" uid="uid://d2sa1f6p4kv2e" path="res://Nodes/Utils/TextScaler/TextScaler.tscn" id="2_6m3gb"]
+
+[node name="MachinePicker" type="CanvasLayer" unique_id=1635336675]
+script = ExtResource("1_6i4dk")
+
+[node name="Panel" type="Panel" parent="." unique_id=701431472]
+process_mode = 3
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_syty6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=646121310]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Title" type="RichTextLabel" parent="Panel/VBoxContainer" unique_id=992493455]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_syty6")
+theme_override_font_sizes/normal_font_size = 40
+text = "Choose a machine"
+horizontal_alignment = 1
+
+[node name="TextScaler" parent="Panel/VBoxContainer/Title" unique_id=781859518 instance=ExtResource("2_6m3gb")]
+
+[node name="Control" type="Control" parent="Panel/VBoxContainer" unique_id=641379489]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Search" type="LineEdit" parent="Panel/VBoxContainer/Control" unique_id=1433308726]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_right = 0.8
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+placeholder_text = "Search"
+alignment = 1
+
+[node name="Spacer" type="Control" parent="Panel/VBoxContainer" unique_id=1279905608]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer" unique_id=585968430]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+
+[node name="VBoxForScroll" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer" unique_id=1981954441]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BaseVsCustom" type="HBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll" unique_id=628875793]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BaseMachines" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom" unique_id=1709148755]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom/BaseMachines" unique_id=2038743661]
+layout_mode = 2
+theme = ExtResource("1_syty6")
+text = "Base Machines"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="BaseButtonContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom/BaseMachines" unique_id=1867824695]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="CustomMachines" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom" unique_id=991304578]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="RichTextLabel" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom/CustomMachines" unique_id=844019373]
+layout_mode = 2
+theme = ExtResource("1_syty6")
+text = "Custom Machines"
+fit_content = true
+horizontal_alignment = 1
+
+[node name="CustomButtonContainer" type="VBoxContainer" parent="Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom/CustomMachines" unique_id=175613400]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="text_changed" from="Panel/VBoxContainer/Control/Search" to="." method="_on_search_text_changed"]

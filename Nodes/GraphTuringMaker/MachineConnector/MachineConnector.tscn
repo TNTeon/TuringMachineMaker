@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dogc840hwcxcf"]
+
+[ext_resource type="Script" uid="uid://cfrpvbejuw7y8" path="res://Nodes/GraphTuringMaker/MachineConnector/machine_connector.gd" id="1_k5rry"]
+
+[node name="MachineConnector" type="Node2D" unique_id=1942223369]
+script = ExtResource("1_k5rry")

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://d2sa1f6p4kv2e"]
+
+[ext_resource type="Script" uid="uid://bhxcntvkqjs44" path="res://Nodes/Utils/TextScaler/text_scaler.gd" id="1_ym4n1"]
+
+[node name="TextScaler" type="Node" unique_id=781859518]
+script = ExtResource("1_ym4n1")
+
+[connection signal="tree_entered" from="." to="." method="_enter_tree"]
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

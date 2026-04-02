@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c6tv8i7rdk5di"]
+
+[ext_resource type="Script" uid="uid://dn06cx8621e7n" path="res://Nodes/GraphTuringMaker/GridObjectTracker/gride_object_tracker.gd" id="1_ux20n"]
+
+[node name="GrideObjectTracker" type="Node" unique_id=1738256875]
+script = ExtResource("1_ux20n")
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_created"]

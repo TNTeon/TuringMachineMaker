@@ -43,3 +43,6 @@ func drawGrid():
 	
 func _draw():
 	drawGrid()
+
+func snapPosToGrid(pos : Vector2):
+	return pos.snappedf(GRID_DISTANCE)

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b6eabv6jdk1oi"]
+
+[ext_resource type="Script" uid="uid://cihoutqsjwgbh" path="res://Nodes/GraphTuringMaker/MachineItem/machine_item.gd" id="1_jtgrb"]
+[ext_resource type="Texture2D" uid="uid://dlvowmg5khe57" path="res://Assets/functionButton/blank.png" id="2_dguv5"]
+
+[node name="MachineItem" type="Node2D" unique_id=4914802]
+script = ExtResource("1_jtgrb")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=735227035]
+self_modulate = Color(0.85490197, 0.17254902, 0.21960784, 1)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_dguv5")
+
+[node name="NameLabel" type="RichTextLabel" parent="." unique_id=393308764]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+theme_override_font_sizes/normal_font_size = 35
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
