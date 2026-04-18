@@ -38,7 +38,6 @@ func action():
 	if not allowOverlap and is_overlap(snapMouse,get_tree().get_nodes_in_group("onGrid")):
 		return
 	
-	placeNode.add_to_group("onGrid")
 	if object_tracker != null:
 		object_tracker.add_child(placeNode)
 	else:

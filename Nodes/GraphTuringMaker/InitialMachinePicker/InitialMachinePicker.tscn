@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b1gqspdl2gbm2"]
+
+[ext_resource type="Texture2D" uid="uid://dgu44aqo88771" path="res://Assets/initialSelectionButton/initIndicator.png" id="1_4pfet"]
+[ext_resource type="Script" uid="uid://dk6v01ve001cu" path="res://Nodes/GraphTuringMaker/InitialMachinePicker/initial_machine_picker.gd" id="1_mxl74"]
+
+[node name="InitialMachinePicker" type="Sprite2D" unique_id=1308489693]
+scale = Vector2(0.53, 0.53)
+texture = ExtResource("1_4pfet")
+script = ExtResource("1_mxl74")

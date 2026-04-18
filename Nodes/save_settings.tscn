@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bqjtyi4we60uo"]
+
+[ext_resource type="Script" uid="uid://dk1ax7dfrhkgy" path="res://Nodes/save_settings.gd" id="1_pwjhc"]
+[ext_resource type="PackedScene" uid="uid://dfe7q8lmsx8x0" path="res://Nodes/BaseTuringMaker/betterLineEdit.tscn" id="1_r8gs2"]
+[ext_resource type="FontFile" uid="uid://c8uuavmtut674" path="res://Font/FormalScript.otf" id="2_pwjhc"]
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="3_h41is"]
+[ext_resource type="Theme" uid="uid://cpfpdoi1lypp3" path="res://Themes/subUITheme.tres" id="4_xjj1t"]
+[ext_resource type="StyleBox" uid="uid://c0xvwlnojo7ny" path="res://Themes/Elements/normalSelectorColor.tres" id="6_h41is"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_itg4s"]
+bg_color = Color(0.7019608, 0.7176471, 0.93333334, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6sgg4"]
+bg_color = Color(0.5764706, 0.58431375, 0.827451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SaveSettings" type="CanvasLayer" unique_id=1649868048]
+process_mode = 3
+script = ExtResource("1_pwjhc")
+
+[node name="Name" parent="." unique_id=623201091 instance=ExtResource("1_r8gs2")]
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.05
+anchor_right = 0.7
+anchor_bottom = 0.15
+mouse_filter = 1
+theme_override_fonts/font = ExtResource("2_pwjhc")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_itg4s")
+placeholder_text = "Name"
+
+[node name="SaveBut" type="Button" parent="." unique_id=825674204]
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.033
+anchor_right = 0.978
+anchor_bottom = 0.1
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_h41is")
+text = "Save"
+
+[node name="ExitBut" type="Button" parent="." unique_id=788458200]
+anchors_preset = -1
+anchor_left = 0.823
+anchor_top = 0.118
+anchor_right = 0.978
+anchor_bottom = 0.185
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_h41is")
+text = "Exit"
+
+[node name="FontSettings" type="Panel" parent="." unique_id=225594384]
+anchors_preset = -1
+anchor_left = 0.022
+anchor_top = 0.05
+anchor_right = 0.205
+anchor_bottom = 0.15
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_xjj1t")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FontSettings" unique_id=1616288263]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Font" type="RichTextLabel" parent="FontSettings/HBoxContainer" unique_id=315330405]
+layout_mode = 2
+theme = ExtResource("3_h41is")
+theme_override_font_sizes/normal_font_size = 16
+text = "Font: "
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="FontSettings/HBoxContainer" unique_id=1549920007]
+custom_minimum_size = Vector2(4, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6sgg4")
+
+[node name="FontSelector" type="Button" parent="FontSettings/HBoxContainer" unique_id=1072521502]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_h41is")
+theme_override_styles/pressed = ExtResource("6_h41is")
+text = "Formal"
+
+[connection signal="text_changed" from="Name" to="." method="_name_changed"]
+[connection signal="pressed" from="SaveBut" to="." method="_on_save_but_pressed"]
+[connection signal="pressed" from="ExitBut" to="." method="_on_exit_but_pressed"]
+[connection signal="pressed" from="FontSettings/HBoxContainer/FontSelector" to="." method="_on_font_selector_pressed"]

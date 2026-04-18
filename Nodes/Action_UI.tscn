@@ -219,7 +219,7 @@ script = ExtResource("1_r8ipi")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.01
-anchor_top = 0.1
+anchor_top = 0.2
 anchor_right = 0.07
 anchor_bottom = 0.9
 grow_horizontal = 2
@@ -245,6 +245,7 @@ theme = ExtResource("1_g4cio")
 theme_override_constants/separation = 20
 
 [node name="Panel" type="Panel" parent="Panel/Seperator" unique_id=1682321621]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.01
@@ -252,6 +253,7 @@ mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_r8ipi")
 
 [node name="HoldButton" type="Control" parent="Panel/Seperator" unique_id=1896877886]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15

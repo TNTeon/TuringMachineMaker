@@ -1,13 +1,13 @@
-extends CanvasLayer
+extends TuringMaker
 
-@onready var machineName: LineEdit = $Name
 @onready var quad_holder: VBoxContainer = $ScrollContainer/List/QuadHolder
 
 const QUAD_MAKER = preload("uid://70bg17qa3lti")
-const INFORMATION_POPUP = preload("uid://b3oaj1dbuq4dv")
 
-const FORMAL_SCRIPT = preload("uid://c8uuavmtut674")
-const OPEN_SANS_SEMI_BOLD = preload("uid://qt46wgqoqwhw")
+@onready var saveSettings: save_settings = $SaveSettings
+
+func _ready() -> void:
+	saveSettings.requestSave.connect(_on_save)
 
 func _on_new_quad_pressed() -> void:
 	var newQuad : QuadMaker = QUAD_MAKER.instantiate()
@@ -27,12 +27,11 @@ func _on_save() -> void:
 	var machine = makeMachine()
 	if machine == null:
 		return
-	if machineName.text == null or machineName.text == "":
+	if saveSettings.get_machine_name() == null or saveSettings.get_machine_name() == "":
 		createPopup("Name Not Set","Please give this machine a name before saving.")
 		return
 		
-	print(machineName["theme_override_fonts/font"])
-	machine.setMachine(machineName.text,machineName["theme_override_fonts/font"])
+	machine.setMachine(saveSettings.get_machine_name(),saveSettings.get_font())
 	
 	machine.saveMachine()
 
@@ -48,18 +47,3 @@ func makeMachine():
 				createPopup("Overwriting Data","Row %s contains the same Initial State and Reading Char as a previous row." % [counter])
 				return null
 	return machine
-
-func createPopup(title,info):
-	var popup : InformationPopup = INFORMATION_POPUP.instantiate()
-	add_child(popup)
-	popup.setText(title,info)
-
-
-func _on_font_selected(index):
-	match index:
-		0:
-			machineName.add_theme_font_override("font",FORMAL_SCRIPT)
-			machineName.add_theme_font_size_override("font_size",50)
-		1:
-			machineName.add_theme_font_override("font",OPEN_SANS_SEMI_BOLD)
-			machineName.add_theme_font_size_override("font_size",30)

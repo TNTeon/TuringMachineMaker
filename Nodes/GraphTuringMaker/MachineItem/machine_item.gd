@@ -14,7 +14,7 @@ var path : MachinePath = MachinePath.new()
 const OPEN_SANS_SEMI_BOLD = preload("uid://qt46wgqoqwhw")
 
 func _ready() -> void:
-	path.machine = self
+	path.machineItem = self
 	name_label.text = machine.name
 	name_label.add_theme_font_override("normal_font",machine.font)
 	defaultColor = sprite.self_modulate
@@ -57,3 +57,21 @@ func connection(nextMachinePath : machine_item, pathValue : Array[String]):
 		for i in pathValue:
 			path.nextMachine.set(i,nextMachinePath)
 	queue_redraw()
+
+func save():
+	var connectionIds = {}
+	for i in path.nextMachine.keys():
+		connectionIds.set(i,str(path.nextMachine[i].get_instance_id()))
+	var save_data = {
+		"full_name":machine.name+machine.font.font_name[0],
+		"connections":connectionIds,
+		"pos_x":position.x,
+		"pos_y":position.y
+	}
+	if machine is BaseTuringMachine:
+		save_data.set("type","base")
+	elif machine is GraphTuringMachine:
+		save_data.set("type","graph")
+	else:
+		print("Machine neither base or graph")
+	return save_data

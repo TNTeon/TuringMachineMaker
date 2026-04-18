@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d2sa1f6p4kv2e" path="res://Nodes/Utils/TextScaler/TextScaler.tscn" id="2_6m3gb"]
 
 [node name="MachinePicker" type="CanvasLayer" unique_id=1635336675]
+process_mode = 3
 script = ExtResource("1_6i4dk")
 
 [node name="Panel" type="Panel" parent="." unique_id=701431472]
@@ -105,5 +106,6 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 10
 
 [connection signal="text_changed" from="Panel/VBoxContainer/Control/Search" to="." method="_on_search_text_changed"]

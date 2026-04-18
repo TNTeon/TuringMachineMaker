@@ -14,6 +14,16 @@ func _ready() -> void:
 		newButton.machine = i
 		newButton.machineSelected.connect(machine_selected)
 		base_button_container.add_child(newButton)
+	for i : GraphTuringMachine in TuringStorage.graphMachines.values():
+		var newButton : MachinePickerButton = MACHINE_PICKER_BUTTON.instantiate()
+		newButton.machine = i
+		newButton.machineSelected.connect(machine_selected)
+		custom_button_container.add_child(newButton)
+		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().paused = false
+		queue_free()
 
 func pauseGame():
 	get_tree().paused = true

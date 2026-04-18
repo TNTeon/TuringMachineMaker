@@ -1,6 +1,9 @@
 class_name action_ui
 extends Control
 
+@export
+var ignoreClicks : Array[Node]
+
 var collapsed : bool = false
 
 var current_action = null
@@ -18,7 +21,13 @@ func _ready():
 		i.reparent(action_button_holder)
 		i.visible = true
 		i.actionPressed.connect(actionChanged)
-
+	for i in ignoreClicks:
+		if i != null and i.has_signal("mouse_entered") and i.has_signal("mouse_exited"):
+			i.mouse_entered.connect(_mouse_hovering)
+			i.mouse_exited.connect(_mouse_unhovering)
+		else:
+			print("Couldn't connect ignore click")
+		
 func _input(event: InputEvent):
 	if event is InputEventMouseButton and current_action and !hovering:
 		if event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:

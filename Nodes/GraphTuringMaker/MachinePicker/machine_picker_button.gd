@@ -3,7 +3,7 @@ extends Button
 
 signal machineSelected
 
-var machine : BaseTuringMachine
+var machine : TuringMachine
 
 func _ready() -> void:
 	text = machine.name
