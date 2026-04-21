@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1fbb70anar1h"]
+
+[ext_resource type="PackedScene" uid="uid://b5crmu4i6qlco" path="res://Nodes/TuringRunner/TapeController/TapeController.tscn" id="1_4j38j"]
+[ext_resource type="PackedScene" uid="uid://dwjesrgyfn0a8" path="res://Nodes/TuringRunner/Tape/Tape.tscn" id="1_c1fae"]
+
+[node name="TuringRunner" type="Control" unique_id=998730174]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TapeController" parent="." unique_id=64679743 node_paths=PackedStringArray("TAPE") instance=ExtResource("1_4j38j")]
+layout_mode = 1
+TAPE = NodePath("../Tape")
+
+[node name="Tape" parent="." unique_id=870064676 instance=ExtResource("1_c1fae")]
+layout_mode = 1

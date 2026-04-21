@@ -4,6 +4,8 @@ extends TuringMachine
 	
 var states : Dictionary = {}
 
+var currentState = 0
+
 func createQuad(state : int, reading : String, action : String, next : int) -> bool:
 	var actionDict : Dictionary
 	actionDict.set("action",action)
@@ -22,7 +24,7 @@ func createQuad(state : int, reading : String, action : String, next : int) -> b
 	
 
 func getAction(state,reading):
-	var getState = states.get(state)
+	var getState = states.get(str(state))
 	if getState != null:
 		return getState.get(reading)
 	return null
@@ -69,3 +71,13 @@ static func loadMachine(path):
 		machine.font = load(machine_data["font"])
 		
 		return machine
+
+func singleStep(currentValue):
+	var actionDict = getAction(currentState,currentValue)
+	print(actionDict)
+	if actionDict is Dictionary:
+		var action = actionDict["action"]
+		currentState = actionDict["next"]
+		return action
+	else:
+		return "halt"

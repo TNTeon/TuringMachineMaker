@@ -17,3 +17,6 @@ func setMachine(_name : String, _font : FontFile):
 
 @abstract
 func saveMachine()
+
+@abstract
+func singleStep(readingValue)

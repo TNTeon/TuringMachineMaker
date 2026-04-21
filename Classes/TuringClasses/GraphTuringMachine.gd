@@ -77,3 +77,6 @@ static func loadMachine(path):
 	machine.font = load(machine_data["font"])
 	
 	return machine
+
+func singleStep(readingValue):
+	pass
