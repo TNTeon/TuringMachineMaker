@@ -4,6 +4,7 @@ extends TuringMachine
 
 var initialMachine : machine_item
 var machineItems : Array[machine_item]
+var currentMachine : machine_item
 
 const MACHINE_ITEM = preload("uid://b6eabv6jdk1oi")
 
@@ -77,3 +78,23 @@ static func loadMachine(path):
 	machine.font = load(machine_data["font"])
 	
 	return machine
+
+func singleStep(readingValue):
+	if currentMachine == null:
+		currentMachine = initialMachine
+	var currentAction = currentMachine.machine.singleStep(readingValue)
+	while currentAction == "halt":
+		currentMachine.machine.reset()
+		var tryNextMachine = currentMachine.path.nextMachine.get(readingValue)
+		if tryNextMachine == null:
+			tryNextMachine = currentMachine.path.nextMachine.get("")
+		currentMachine = tryNextMachine
+		if currentMachine != null:
+			currentAction = currentMachine.machine.singleStep(readingValue)
+		else:
+			return "halt"
+	return currentAction
+func reset():
+	if currentMachine != null:
+		currentMachine.reset()
+	currentMachine = null

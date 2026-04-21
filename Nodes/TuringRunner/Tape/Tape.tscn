@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dwjesrgyfn0a8"]
+
+[ext_resource type="Script" uid="uid://b07gxdpkr6yxm" path="res://Nodes/TuringRunner/Tape/Tape.gd" id="1_gvnpj"]
+
+[node name="Tape" type="Control" unique_id=870064676]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_gvnpj")
+
+[node name="TileContainer" type="HBoxContainer" parent="." unique_id=1831436991]
+layout_mode = 0
+offset_right = 810.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = -10
+alignment = 1

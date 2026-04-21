@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://cidi5wj64sjnn"]
+
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_628cv"]
+[ext_resource type="Script" uid="uid://etaooo3x0lo6" path="res://Nodes/Tape/Tile.gd" id="1_bshmy"]
+
+[node name="Tile" type="Control" unique_id=2002153824]
+custom_minimum_size = Vector2(60, 73)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1092.0
+offset_bottom = -575.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_bshmy")
+
+[node name="Panel" type="Panel" parent="." unique_id=1093397612]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("1_628cv")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=319508797]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/CenterContainer" unique_id=366906353]
+layout_mode = 2
+mouse_filter = 2
+theme = ExtResource("1_628cv")
+bbcode_enabled = true
+text = "0"
+fit_content = true
+autowrap_mode = 0

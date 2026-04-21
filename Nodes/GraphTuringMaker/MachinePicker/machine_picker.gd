@@ -1,3 +1,4 @@
+class_name machine_picker
 extends CanvasLayer
 const MACHINE_PICKER_BUTTON = preload("uid://dw26vxsu4hpmt")
 const MACHINE_ITEM = preload("uid://b6eabv6jdk1oi")
@@ -5,6 +6,8 @@ const MACHINE_ITEM = preload("uid://b6eabv6jdk1oi")
 @onready var custom_button_container: VBoxContainer = $Panel/VBoxContainer/ScrollContainer/VBoxForScroll/BaseVsCustom/CustomMachines/CustomButtonContainer
 
 var position : Vector2
+var instance_machine_item = true
+signal machineSelected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,10 +32,13 @@ func pauseGame():
 	get_tree().paused = true
 
 func machine_selected(machine):
-	var newMachineItem : machine_item = MACHINE_ITEM.instantiate()
-	newMachineItem.position = position
-	newMachineItem.machine = machine
-	get_parent().add_child(newMachineItem)
+	if instance_machine_item:
+		var newMachineItem : machine_item = MACHINE_ITEM.instantiate()
+		newMachineItem.position = position
+		newMachineItem.machine = machine
+		get_parent().add_child(newMachineItem)
+	else:
+		machineSelected.emit(machine)
 	get_tree().paused = false
 	queue_free()
 
