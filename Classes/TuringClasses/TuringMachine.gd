@@ -20,3 +20,6 @@ func saveMachine()
 
 @abstract
 func singleStep(readingValue)
+
+@abstract
+func reset()

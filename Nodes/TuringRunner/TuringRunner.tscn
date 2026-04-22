@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://1fbb70anar1h"]
 
 [ext_resource type="PackedScene" uid="uid://b5crmu4i6qlco" path="res://Nodes/TuringRunner/TapeController/TapeController.tscn" id="1_4j38j"]
+[ext_resource type="Script" uid="uid://dn5goyaaugnx5" path="res://Nodes/TuringRunner/turing_runner.gd" id="1_7xh4a"]
 [ext_resource type="PackedScene" uid="uid://dwjesrgyfn0a8" path="res://Nodes/TuringRunner/Tape/Tape.tscn" id="1_c1fae"]
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="2_erg1l"]
 
 [node name="TuringRunner" type="Control" unique_id=998730174]
 layout_mode = 3
@@ -10,10 +12,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7xh4a")
 
 [node name="TapeController" parent="." unique_id=64679743 node_paths=PackedStringArray("TAPE") instance=ExtResource("1_4j38j")]
 layout_mode = 1
-TAPE = NodePath("../Tape")
+TAPE = NodePath("../VBoxContainer/Tape")
 
-[node name="Tape" parent="." unique_id=870064676 instance=ExtResource("1_c1fae")]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2009112374]
 layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SelectMachine" type="Button" parent="VBoxContainer" unique_id=1754403221]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_erg1l")
+
+[node name="Tape" parent="VBoxContainer" unique_id=870064676 instance=ExtResource("1_c1fae")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="VBoxContainer/SelectMachine" to="." method="_on_select_machine_pressed"]

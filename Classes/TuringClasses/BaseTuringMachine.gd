@@ -74,10 +74,13 @@ static func loadMachine(path):
 
 func singleStep(currentValue):
 	var actionDict = getAction(currentState,currentValue)
-	print(actionDict)
+	#print(actionDict)
 	if actionDict is Dictionary:
 		var action = actionDict["action"]
 		currentState = actionDict["next"]
 		return action
 	else:
 		return "halt"
+
+func reset():
+	currentState = 0
