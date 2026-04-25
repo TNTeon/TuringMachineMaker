@@ -85,13 +85,15 @@ func singleStep(readingValue):
 	var currentAction = currentMachine.machine.singleStep(readingValue)
 	while currentAction == "halt":
 		currentMachine.machine.reset()
-		currentMachine = currentMachine.path.nextMachine.get(readingValue)
+		var tryNextMachine = currentMachine.path.nextMachine.get(readingValue)
+		if tryNextMachine == null:
+			tryNextMachine = currentMachine.path.nextMachine.get("")
+		currentMachine = tryNextMachine
 		if currentMachine != null:
 			currentAction = currentMachine.machine.singleStep(readingValue)
 		else:
 			return "halt"
 	return currentAction
-
 func reset():
 	if currentMachine != null:
 		currentMachine.reset()

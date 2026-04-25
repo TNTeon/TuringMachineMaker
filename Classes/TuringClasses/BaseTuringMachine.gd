@@ -80,6 +80,7 @@ func singleStep(currentValue):
 		currentState = actionDict["next"]
 		return action
 	else:
+		reset()
 		return "halt"
 
 func reset():
