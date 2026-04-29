@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c04r1fd7fb3k2"]
+
+[ext_resource type="Script" uid="uid://6jh6p8qfyc2x" path="res://Nodes/SceneNavigator/scene_navigaor.gd" id="1_pwv1u"]
+[ext_resource type="Theme" uid="uid://b8pp1d2jfmtub" path="res://Themes/uiTheme.tres" id="1_ui0wt"]
+[ext_resource type="PackedScene" uid="uid://d2sa1f6p4kv2e" path="res://Nodes/Utils/TextScaler/TextScaler.tscn" id="2_pwv1u"]
+
+[node name="SceneNavigaor" type="Control" unique_id=23872815]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pwv1u")
+
+[node name="VirtHolder" type="VBoxContainer" parent="." unique_id=1241468175]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.85
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="RichTextLabel" parent="VirtHolder" unique_id=1534798935]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_ui0wt")
+theme_override_font_sizes/normal_font_size = 64
+text = "Welcome to TNTuring!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextScaler" parent="VirtHolder/Title" unique_id=781859518 instance=ExtResource("2_pwv1u")]
+
+[node name="SubTitle" type="RichTextLabel" parent="VirtHolder" unique_id=1027631895]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme = ExtResource("1_ui0wt")
+theme_override_font_sizes/normal_font_size = 30
+text = " A program to graphically define turing machines!"
+horizontal_alignment = 1
+
+[node name="TextScaler" parent="VirtHolder/SubTitle" unique_id=665926783 instance=ExtResource("2_pwv1u")]
+
+[node name="HorHolder" type="HBoxContainer" parent="VirtHolder" unique_id=1921999266]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 69
+
+[node name="graphButton" type="Button" parent="VirtHolder/HorHolder" unique_id=1576794625]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ui0wt")
+theme_override_font_sizes/font_size = 30
+text = "Turing Grapher"
+
+[node name="baseButton" type="Button" parent="VirtHolder/HorHolder" unique_id=851314366]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ui0wt")
+theme_override_font_sizes/font_size = 30
+text = "Base Machines"
+
+[node name="runnerButton" type="Button" parent="VirtHolder/HorHolder" unique_id=1605407968]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_ui0wt")
+theme_override_font_sizes/font_size = 30
+text = "Run Machine"
+
+[connection signal="pressed" from="VirtHolder/HorHolder/graphButton" to="." method="_on_graph_button_pressed"]
+[connection signal="pressed" from="VirtHolder/HorHolder/baseButton" to="." method="_on_base_button_pressed"]
+[connection signal="pressed" from="VirtHolder/HorHolder/runnerButton" to="." method="_on_runner_button_pressed"]

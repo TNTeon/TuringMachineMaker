@@ -1,10 +1,9 @@
 extends TuringMaker
 
 @onready var quad_holder: VBoxContainer = $ScrollContainer/List/QuadHolder
+@onready var saveSettings: save_settings = $SaveSettings
 
 const QUAD_MAKER = preload("uid://70bg17qa3lti")
-
-@onready var saveSettings: save_settings = $SaveSettings
 
 func _ready() -> void:
 	saveSettings.requestSave.connect(_on_save)
@@ -47,3 +46,8 @@ func makeMachine():
 				createPopup("Overwriting Data","Row %s contains the same Initial State and Reading Char as a previous row." % [counter])
 				return null
 	return machine
+
+
+func _on_save_settings_request_exit() -> void:
+	TuringStorage._ready()
+	get_tree().change_scene_to_file("res://Nodes/SceneNavigator/SceneNavigaor.tscn")

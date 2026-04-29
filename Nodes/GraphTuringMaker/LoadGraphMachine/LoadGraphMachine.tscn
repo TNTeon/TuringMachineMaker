@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lks8h7wbikp4"]
+
+[ext_resource type="Script" uid="uid://vldgp778sscl" path="res://Nodes/GraphTuringMaker/LoadGraphMachine/load_graph_machine.gd" id="1_20iko"]
+
+[node name="LoadGraphMachine" type="CanvasLayer" unique_id=966414754]
+script = ExtResource("1_20iko")

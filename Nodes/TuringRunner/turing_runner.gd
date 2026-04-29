@@ -16,5 +16,4 @@ func _on_machine_selected(machine : TuringMachine):
 	title.text = machine.name
 
 func _on_exit_but_pressed():
-	#get_tree().change_scene_to_file("")
-	pass
+	get_tree().change_scene_to_file("res://Nodes/SceneNavigator/SceneNavigaor.tscn")

@@ -10,6 +10,7 @@ func _ready() -> void:
 
 var _graphFiles : Array
 func loadGraphMachines():
+	graphMachines = {}
 	if not DirAccess.dir_exists_absolute(Paths.graphMachines):
 		DirAccess.make_dir_absolute(Paths.graphMachines)
 	var files = DirAccess.get_files_at(Paths.graphMachines)
@@ -29,6 +30,7 @@ func loadSpecificGraph(name : String):
 	graphMachines.set(machine.name+machine.font.font_name[0], machine)
 
 func loadBaseMachines():
+	baseMachines = {}
 	if not DirAccess.dir_exists_absolute(Paths.baseMachines):
 		DirAccess.make_dir_absolute(Paths.baseMachines)
 	var files = DirAccess.get_files_at(Paths.baseMachines)

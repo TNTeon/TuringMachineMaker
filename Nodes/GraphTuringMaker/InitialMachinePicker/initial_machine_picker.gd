@@ -16,6 +16,9 @@ func _ready() -> void:
 func action():
 	var gridPos = grid.snapPosToGrid(get_global_mouse_position())
 	var node = object_tracker.get_node_from_position(gridPos)
+	setInitialMachine(node)
+
+func setInitialMachine(node):
 	if node == null:
 		return
 	self.visible = true

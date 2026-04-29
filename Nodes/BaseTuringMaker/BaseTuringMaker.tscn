@@ -106,4 +106,5 @@ theme = ExtResource("2_itg4s")
 text = "New Quad"
 
 [connection signal="fontChanged" from="SaveSettings" to="." method="_font_changed"]
+[connection signal="requestExit" from="SaveSettings" to="." method="_on_save_settings_request_exit"]
 [connection signal="pressed" from="ScrollContainer/List/PosButton/NewQuad" to="." method="_on_new_quad_pressed"]

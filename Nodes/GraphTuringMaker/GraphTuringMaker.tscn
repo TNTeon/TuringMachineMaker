@@ -92,4 +92,5 @@ texture_normal = ExtResource("14_wnelu")
 texture_pressed = ExtResource("15_3vwye")
 connection = NodePath("../../../InitialMachinePicker")
 
+[connection signal="requestExit" from="SaveSettings" to="." method="_on_save_settings_request_exit"]
 [connection signal="requestSave" from="SaveSettings" to="." method="_on_save"]
