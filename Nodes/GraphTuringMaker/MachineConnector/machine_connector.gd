@@ -50,3 +50,11 @@ func completeConnection(values, fromNode : machine_item, toNode : machine_item):
 		fromNode.connection(toNode,values)
 	else:
 		fromNode.removeConnection(toNode)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_text_delete") and selectedObject != null:
+		selectedObject.queue_free()
+		selectedObject = null
+		await get_tree().process_frame
+		for i : Node2D in object_tracker.get_children():
+			i.queue_redraw()

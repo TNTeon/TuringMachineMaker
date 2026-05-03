@@ -20,9 +20,13 @@ func _ready() -> void:
 	defaultColor = sprite.self_modulate
 
 func _draw() -> void:
+	print("working On stuff")
 	var plannedString = {}
 	for i in path.nextMachine.keys():
 		var currentValue = path.nextMachine[i]
+		if currentValue == null:
+			path.nextMachine.erase(i)
+			continue
 		if plannedString.has(currentValue):
 			plannedString[currentValue] = plannedString[currentValue] + ", " + i
 		else:
