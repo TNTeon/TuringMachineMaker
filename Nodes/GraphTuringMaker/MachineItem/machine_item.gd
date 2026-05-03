@@ -51,7 +51,7 @@ func selectable():
 func unselect():
 	sprite.self_modulate = defaultColor
 
-func connection(nextMachinePath : machine_item, pathValue : Array[String]):
+func connection(nextMachinePath : machine_item, pathValue):
 	if "" in path.nextMachine:
 		path.nextMachine.clear()
 	if "" in pathValue:

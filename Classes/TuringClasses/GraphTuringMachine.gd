@@ -22,7 +22,8 @@ func saveMachine():
 	
 	var saved_machines : Dictionary
 	for machineItem : machine_item in machineItems:
-		saved_machines.set(machineItem.get_instance_id(),machineItem.save())
+		if machineItem != null:
+			saved_machines.set(machineItem.get_instance_id(),machineItem.save())
 	save_data.set("machines",saved_machines)
 	
 	var fontPath = font.to_string().split("<")[0]
