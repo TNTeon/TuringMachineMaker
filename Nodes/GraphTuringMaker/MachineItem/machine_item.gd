@@ -58,6 +58,13 @@ func connection(nextMachinePath : machine_item, pathValue : Array[String]):
 			path.nextMachine.set(i,nextMachinePath)
 	queue_redraw()
 
+func removeConnection(connectedMachine : machine_item):
+	for i in path.nextMachine.keys():
+		if path.nextMachine[i] == connectedMachine:
+			path.nextMachine.erase(i)
+			queue_redraw()
+			break
+
 func save():
 	var connectionIds = {}
 	for i in path.nextMachine.keys():

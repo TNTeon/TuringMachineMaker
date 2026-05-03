@@ -45,5 +45,8 @@ func startConnection(fromNode, toNode):
 	newEdge.connection_values_given.connect(completeConnection.bind(fromNode, toNode))
 	add_child(newEdge)
 
-func completeConnection(values : Array[String], fromNode : machine_item, toNode : machine_item):
-	fromNode.connection(toNode,values)
+func completeConnection(values, fromNode : machine_item, toNode : machine_item):
+	if values != null:
+		fromNode.connection(toNode,values)
+	else:
+		fromNode.removeConnection(toNode)

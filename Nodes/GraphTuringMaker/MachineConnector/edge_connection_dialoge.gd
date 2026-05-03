@@ -8,6 +8,13 @@ signal connection_values_given
 func _ready():
 	call_deferred("pauseProgram")
 	line_edit.grab_focus()
+	
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel"):
+		_on_cancel_pressed()
+	elif event.is_action_pressed("ui_text_delete"):
+		connection_values_given.emit(null)
+		queue_free()
 
 func pauseProgram():
 	get_tree().paused = true
